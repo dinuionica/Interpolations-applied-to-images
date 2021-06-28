@@ -1,10 +1,10 @@
 % 315CA Dinu Ion-Irinel
 function out = bicubic_resize_RGB (img, p, q)
-    % =============================================== =======================
+    % ======================================================================
     % Resize image img a.i. it should be of size p x q.
     % The img image is colored.
     % Basically, it calls the bicubic_resize function 3 times on each channel of the image.
-    % =============================================== =======================
+    % ======================================================================
 
 
     % extraction of the red channel of the image
