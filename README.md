@@ -140,12 +140,3 @@ very intuitive
 I saved time running the checker
 
 ===================================================================
-
-5. Feedback
-- an interesting topic, I liked the idea, congratulations!
-- extremely useful totes and skeleton structuring
-- the existence of the formulas from the theme statement helped a lot
-- a small suggestion: if the checker does not offer points it would help
-much to display the errors that cause this
-
-===================================================================
