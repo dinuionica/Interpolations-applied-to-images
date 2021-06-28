@@ -1,24 +1,24 @@
 % 315CA Dinu Ion-Irinel
-function out = nn_2x2_RGB(img, STEP = 0.1)
-    % =========================================================================
-    % Aplica interpolare nearest neighbour pe imaginea 2x2 img cu puncte
-    % intermediare echidistante.
-    % img este o imagine colorata RGB.
-    % =========================================================================
+function out = nn_2x2_RGB (img, STEP = 0.1)
+     % ======================================================================
+     % Apply nearest neighbor interpolation to the 2x2 img dotted image
+     % equidistant intermediate.
+     % img is a RGB color image.
+     % ======================================================================
     
-    % extragerea canalului rosu al imaginii
-    red_channel = img(:, :, 1);
-    % extragerea canalului verde al imaginii
-    green_channel = img(:, :, 2); 
-    % extragerea canalului albastru al imaginii
-    blue_channel = img(:, :, 3); 
+     % extraction of the red channel of the image
+     red_channel = img (:,:, 1);
+     % extract the green channel of the image
+     green_channel = img (:,:, 2);
+     % extract the blue channel of the image
+     blue_channel = img (:,:, 3);
 
-    % aplicarea functiei nn_2x2 pentru fiecare canal al imaginii
-    red_matrix = nn_2x2(red_channel, STEP);
-    green_matrix = nn_2x2(green_channel, STEP);
-    blue_matrix = nn_2x2(blue_channel, STEP);
-    size = 3;
-    % formarea imaginii finale cu cele 3 canale de culori
-    out = cat(size,red_matrix,green_matrix,blue_matrix);
+     % application of the nn_2x2 function for each image channel
+     red_matrix = nn_2x2 (red_channel, STEP);
+     green_matrix = nn_2x2 (green_channel, STEP);
+     blue_matrix = nn_2x2 (blue_channel, STEP);
+     size = 3;
+     % formation of the final image with the 3 color channels
+     out = cat (size, red_matrix, green_matrix, blue_matrix);
     
 endfunction
