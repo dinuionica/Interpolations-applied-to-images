@@ -19,17 +19,26 @@ https://www.gnu.org/software/octave/download
 ```
 Example file test:
 ```
-add_server 0
-add_server 1
-add_server 2
-store "c674390f9" "Keyboard"
-store "a3529213e15" "Headphones"
-store "5a51719f5ec" "Router"
-store "2fe5f9f583" "Laptop"
-retrieve "c674390f9"
-retrieve "2fe5f9f583"
-remove_server 2
-retrieve "2fe5f9f583"
+%!test
+%! f = imread("../tests/in/points1.png");
+%! step = dlmread("../tests/in/points1_step.txt");
+%! img = nn_2x2(f, step);
+%! ref = dlmread("../tests/ref/nearest/2x2_1.txt");
+%! assert(max(max(abs(ref - int32(img)))) <= 5);
+
+%!test
+%! f = imread("../tests/in/points2.png");
+%! step = dlmread("../tests/in/points2_step.txt");
+%! img = nn_2x2(f, step);
+%! ref = dlmread("../tests/ref/nearest/2x2_2.txt");
+%! assert(max(max(abs(ref - int32(img)))) <= 5);
+
+%!test
+%! f = imread("../tests/in/points3.png");
+%! step = dlmread("../tests/in/points3_step.txt");
+%! img = nn_2x2(f, step);
+%! ref = dlmread("../tests/ref/nearest/2x2_3.txt");
+%! assert(max(max(abs(ref - int32(img)))) <= 5);
 ```
 
 ===================================================================
