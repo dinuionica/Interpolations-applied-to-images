@@ -1,117 +1,116 @@
-COPYRIGHT 2021 DINU ION-IRINEL
-===============================================================================
+================================================ =============================
 
-                    Interpolare aplicata pe imagini
+                    Interpolation applied to images
 
-===============================================================================
+================================================ ============================
 
 
-===============================================================================
+================================================ ============================
 
-1. Nearest-Neighbour
+1. Nearest-Neighbor
 
-Functii implementate:
+Implemented functions:
 .
 ├── nn_2x2
-- am definit coordonatele intermediare si matricea finala 
-- am calculat cel mai apropiat vecin pentru fiecare pixel folosind functia round
-- am determinat valoarea pixelul-ui din imaginea finala
+- we defined the intermediate coordinates and the final matrix
+- I calculated the nearest neighbor for each pixel using the round function
+- I determined the pixel value in the final image
 
 ├── nn_2x2_RGB
-- am extras fiecare canal al imaginii RGB
-- am aplicat pentru fiecare canal functia nn_2x2
-- am calculat matricea rezultata
+- I extracted each channel of the RGB image
+- I applied for each channel the function nn_2x2
+- I calculated the resulting matrix
 
-└── nn_resize 
-- am determinat factorii de scalare
-- am definit matricea de transformare si am calculat inversa acesteia
-- am calculat x_p, y_p si am determinat cel mai apropiat vecin pentru fiecare
-- am calculat valoarea pixelul-ui din imaginea finala
+└── nn_resize
+- I determined the scaling factors
+- I defined the transformation matrix and calculated its inverse
+- I calculated x_p, y_p and determined the nearest neighbor for each
+- I calculated the pixel value of the final image
 
 └── nn_resize_RGB
-- similar functiei nn_2x2_RGB am extras canale si am aplicat functia de
-resize pentru fiecare dintre acestea
+- similar to the nn_2x2_RGB function I extracted channels and applied the
+resize for each of them
 
-===============================================================================
+================================================ ============================
 
 2. Bilinear
 
-Functii implementate:
+Implemented functions:
 .
 ├── bilinear_coef
-- am initializat matricea A formata din punctele 1, x si y
-- am initializat vectorul b care contine punctele din f
-- am rezolvat sistemul pentru a calcula coeficientii de interpolare
+- we initialized the matrix A formed by points 1, x and y
+- we initialized the vector b that contains the points in f
+- I solved the system to calculate the interpolation coefficients
 
 ├── bilinear_2x2
-- am determinat coeficientii de interpolare pe baza celor 4 puncte 
-incadratoare si apoi pentru fiecare am calculat cel mai apropiat vecin
-- am calculat valoarea pixelul-ui final folosind fiecare coeficient obtinut
+- we determined the interpolation coefficients based on the 4 points
+framing and then for each we calculated the nearest neighbor
+- I calculated the value of the final pixel using each coefficient obtained
 
 ├── bilinear_resize
-- am determinat factorii de scalare
-- am calculat pixelii x_p si y_p si punctele care le incojoara
-- in final am calculat coeficientii de interpolare si valoarea pixelul-ui 
-final pe baza acestora
+- I determined the scaling factors
+- I calculated the pixels x_p and y_p and the points that surround them
+- finally we calculated the interpolation coefficients and the pixel value
+final based on them
 
 ├── bilinear_rotate
-- in cadrul functiei am determinat matricea de transformare formata din 
-valorile cos si sin si am calculat inversa acesteia
-- am calculat in mod similar x_p si y_p
-- in cazul in care este depasita dimensiunea imaginii am pus un pixel 
-negru in imaginea finala,adica valorea 0
-- am calculat coeficientii si valoarea pixelul-ui din imaginea finala
+- within the function we determined the transformation matrix consisting of
+the values ​​cos and sin and we calculated its inverse
+- I calculated x_p and y_p similarly
+- if the image size is exceeded, I put a pixel
+black in the final image, ie the value 0
+- I calculated the coefficients and the value of the pixel in the final image
 
-├── bilinear_resize_RGB / ├── bilinear_rotate_RGB / - ca si in cadrul 
-functiilor din nearest neighbour am extras fiecare canal si am aplicat
-functia corespunzatoare pe acesta obtinand apoi imaginea finala.
+├── bilinear_resize_RGB / ├── bilinear_rotate_RGB / - as in
+to the nearest neighbor functions I extracted each channel and applied
+the corresponding function on it then obtaining the final image.
 
-===============================================================================
+================================================ ============================
 
 3. Bicubic
 
-Functii implementate:
+Implemented functions:
 .
 ├── f_x, f_y, f_xy
-- am verificat daca derivata se afla pe marginea matricii si in caz afirmativ
-aceasta a fost intializata cu 0
-- am calculat fiecare derivata dupa formula specifica, folosind diferente finite
+- I checked if the derivative is on the edge of the matrix and if so
+this was initialized with 0
+- we calculated each derivative according to the specific formula, using finite differences
 
 ├── precalc_d
-- am parcurs dimensiuniile imaginii si pentru fiecare pixel am calculat
-derivata acestuia in raport cu x, y si respectiv xy obtinand astfel 
-matricile derivate
+- I went through the dimensions of the image and for each pixel I calculated
+its derivative in relation to x, y and xy, respectively, thus obtaining
+derived matrices
 
 ├── bicubic_coef
-- am initializat cele doua matrici intermediare cat si matricea ce contine
-derivatele pixelilor
-- am convertit toate cele trei matrici la double
-- am obtinuta matricea coeficientilor inmultinand cele trei matrici intermediare
+- I initialized the two intermediate matrices as well as the matrix containing them
+pixel derivatives
+- I converted all three matrices to doubles
+- we obtained the matrix of coefficients by multiplying the three intermediate matrices
 
 ├── bicubic_resize
-- am determinat factorii de scalare
-- am calcuat matricea de transformare si matricile de derivare
-- am calculat x_p si y_p si coeficientii de interpolare
-- am obtinut fiecare pixel din imaginea finala prin inmultirea vectorului 
-ce contine 1 si x_p cu matricea de coeficienti si cu vectorul ce cotine 1 si y_p
+- I determined the scaling factors
+- I calculated the transformation matrix and the derivation matrices
+- I calculated x_p and y_p and the interpolation coefficients
+- we obtained each pixel from the final image by multiplying the vector
+which contains 1 and x_p with the coefficient matrix and with the vector which contains 1 and y_p
 
-├── bicubic_resize_RGB 
-- pentru fiecare canal extras din imaginea RGB am aplicat functia de  
-bicubic_resize enuntata mai sus
+├── bicubic_resize_RGB
+- for each channel extracted from the RGB image we applied the function of
+bicubic_resize stated above
 
-===============================================================================
-4. Mentiuni
--am lasat o parte din comentariile prezente in schelet deoarece erau
-foarte intuitive
-- am folosit functiile built-in din Octave deoarece sunt mai rapide si astfel
-am economisit timp la rularea checkerul-ui
+================================================ =============================
+4. Mentions
+-I left some of the comments present in the skeleton because they were
+very intuitive
+- I used the built-in functions in Octave because they are faster and so on
+I saved time running the checker
 
-===============================================================================
+================================================ ============================
 5. Feedback
-- o tema interesanta, mi-a placut ideea, felicitari!
-- extrem de folositoare todo-uri si structurarea scheletului
-- existenta formulelor din enuntul temei a ajutat foarte mult
-- o mica sugestie: in cazul in care checker-ul nu ofera punctele ar ajuta
-mult sa se afiseze si erorile care cauzeaza acest lucru
+- an interesting topic, I liked the idea, congratulations!
+- extremely useful totes and skeleton structuring
+- the existence of the formulas from the theme statement helped a lot
+- a small suggestion: if the checker does not offer points it would help
+much to display the errors that cause this
 
-===============================================================================
+================================================ =============================
