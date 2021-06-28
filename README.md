@@ -11,7 +11,7 @@ For testing you must use these commands  in linux :<br />
 sudo apt-add-repository ppa:octave/stable
 sudo apt-get update
 sudo apt-get install octave
-octave 
+octave nn_2x2.m
 ```
 For testing at windows you must install octave from here :<br />
 ```
