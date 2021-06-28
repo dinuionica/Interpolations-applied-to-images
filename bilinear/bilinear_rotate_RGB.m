@@ -1,22 +1,22 @@
 % 315CA Dinu Ion-Irinel
-function out = bilinear_rotate_RGB(img, rotation_angle)
-    % =========================================================================
-    % Aplica interpolare bilineara pentru a roti o imagine RGB cu un unghi dat.
-    % =========================================================================
+function out = bilinear_rotate_RGB (img, rotation_angle)
+     % =============================================== =======================
+     % Apply bilinear interpolation to rotate an RGB image at a given angle.
+     % =============================================== =======================
     
-   % extragerea canalului rosu al imaginii
-    red_channel = img(:, :, 1);
-    % extragerea canalului verde al imaginii
-    green_channel = img(:, :, 2); 
-    % extragerea canalului albastru al imaginii
-    blue_channel = img(:, :, 3); 
+    % extraction of the red channel of the image
+     red_channel = img (:,:, 1);
+     % extract the green channel of the image
+     green_channel = img (:,:, 2);
+     % extract the blue channel of the image
+     blue_channel = img (:,:, 3);
 
-    % aplicarea functiei bilinear_rotate pentru fiecare canal al imaginii
-    red_matrix = bilinear_rotate(red_channel, rotation_angle);
-    green_matrix = bilinear_rotate(green_channel, rotation_angle);
-    blue_matrix = bilinear_rotate(blue_channel, rotation_angle);
-    size = 3;
-    % formarea imaginii finale cu cele 3 canale de culori
-    out = cat(size, red_matrix, green_matrix, blue_matrix);
+     % application of the bilinear_rotated function for each channel of the image
+     red_matrix = bilinear_rotate (red_channel, rotation_angle);
+     green_matrix = bilinear_rotate (green_channel, rotation_angle);
+     blue_matrix = bilinear_rotate (blue_channel, rotation_angle);
+     size = 3;
+     % formation of the final image with the 3 color channels
+     out = cat (size, red_matrix, green_matrix, blue_matrix);
 
 endfunction
