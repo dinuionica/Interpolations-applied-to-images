@@ -1,14 +1,22 @@
 # Interpolations-applied-to-images 
 
+Image interpolation occurs in all digital photos at some stage — whether this be in bayer demosaicing or in photo enlargement. It happens anytime you resize or remap (distort) your image from one pixel grid to another. Image resizing is necessary when you need to increase or decrease the total number of pixels, whereas remapping can occur under a wider variety of scenarios: correcting for lens distortion, changing perspective, and rotating an image.
+
 For download this project:
 ```
-https://github.com/dinuionica/Load-Balancer.git
+https://github.com/dinuionica/Interpolations-applied-to-images.git
 ```
-For test you can use make command using linux :<br />
+For testing you must use these commands  in linux :<br />
 ```
-make 
+sudo apt-add-repository ppa:octave/stable
+sudo apt-get update
+sudo apt-get install octave
+octave 
 ```
-
+For testing at windows you must install octave from here :<br />
+```
+https://www.gnu.org/software/octave/download
+```
 Example file test:
 ```
 add_server 0
