@@ -1,11 +1,10 @@
-================================================ =============================
+=============================================================================
 
-                    Interpolation applied to images
+                         Interpolation applied to images
 
-================================================ ============================
+============================================================================
 
-
-================================================ ============================
+============================================================================
 
 1. Nearest-Neighbor
 
@@ -31,7 +30,7 @@ Implemented functions:
 - similar to the nn_2x2_RGB function I extracted channels and applied the
 resize for each of them
 
-================================================ ============================
+============================================================================
 
 2. Bilinear
 
@@ -55,7 +54,7 @@ final based on them
 
 ├── bilinear_rotate
 - within the function we determined the transformation matrix consisting of
-the values ​​cos and sin and we calculated its inverse
+the values cos and sin and we calculated its inverse
 - I calculated x_p and y_p similarly
 - if the image size is exceeded, I put a pixel
 black in the final image, ie the value 0
@@ -65,7 +64,7 @@ black in the final image, ie the value 0
 to the nearest neighbor functions I extracted each channel and applied
 the corresponding function on it then obtaining the final image.
 
-================================================ ============================
+============================================================================
 
 3. Bicubic
 
@@ -98,14 +97,14 @@ which contains 1 and x_p with the coefficient matrix and with the vector which c
 - for each channel extracted from the RGB image we applied the function of
 bicubic_resize stated above
 
-================================================ =============================
+=============================================================================
 4. Mentions
 -I left some of the comments present in the skeleton because they were
 very intuitive
 - I used the built-in functions in Octave because they are faster and so on
 I saved time running the checker
 
-================================================ ============================
+============================================================================
 5. Feedback
 - an interesting topic, I liked the idea, congratulations!
 - extremely useful totes and skeleton structuring
@@ -113,4 +112,4 @@ I saved time running the checker
 - a small suggestion: if the checker does not offer points it would help
 much to display the errors that cause this
 
-================================================ =============================
+============================================================================
