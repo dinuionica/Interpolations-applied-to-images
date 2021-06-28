@@ -149,3 +149,7 @@ very intuitive
 I saved time running the checker
 
 ===================================================================
+
+# Copyright 2021 Dinu Ion-Irinel
+This project is an own achievement and anyone who wants to use it must include 
+the comment "created by Dinu Ion-Irinel 2021" at the end of the code.
